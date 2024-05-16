@@ -2,13 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?php echo $title ?></title>
+	<meta charset="utf-8">
+	<title>Home to MinInventory</title>
 </head>
 <body>
-  <h2>This is the homePage</h2>
+
+<div id="container">
+	<h1>Home to MinInventory </h1>
+</div>
+
 </body>
 </html>
