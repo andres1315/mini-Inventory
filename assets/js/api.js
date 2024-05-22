@@ -1,4 +1,5 @@
 
+
 const axiosInstance =  axios.create({
   baseUrl: baseURL // GLOBAL
 })
@@ -11,6 +12,7 @@ class InventoryApi{
 
 
   async post(url,dataRequest){
-    const {data,status}= await axiosInstance.post(url,dataRequest)
+    const {data,status}= await axiosInstance.postForm(url,dataRequest)  //POSTFORM para que sean enviados el json como formulario y no comoc ontenido del body del request
+    return {data,status}
   }
 }

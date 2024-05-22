@@ -14,16 +14,33 @@ class Login extends CI_Controller{
 
     //restrict users to go back to login if session has been set
     if($this->session->userdata('user')){
-      redirect('_home');
+      $info['title']='Home minInventory';
+      $info['view']='home';
+      $info['css'][]=[
+        'node_modules/admin-lte/dist/css/adminlte.min.css',
+        'node_modules/bootstrap/dist/css/bootstrap.min.css'
+      ];
+      $info['js'][]=[
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/admin-lte/dist/js/adminlte.min.js',
+        'node_modules/axios/dist/axios.min.js',
+        'node_modules/sweetalert2/dist/sweetalert2.all.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+      ];
+      $this->load->view('layout/appLayout',$info);
+
     }else{
       $info['title']='Login minInventory';
       $info['view']='login/index';
       $info['css'][]=[
+        'node_modules/admin-lte/dist/css/adminlte.min.css',
         'node_modules/bootstrap/dist/css/bootstrap.min.css'
 
       ];
 
       $info['js'][]=[
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/admin-lte/dist/js/adminlte.min.js',
         'node_modules/axios/dist/axios.min.js',
         'node_modules/sweetalert2/dist/sweetalert2.all.min.js',
         'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
@@ -41,7 +58,7 @@ class Login extends CI_Controller{
 
   }
 
-
+/* 
   private function _home(){
 
     
@@ -52,9 +69,13 @@ class Login extends CI_Controller{
     else{
       redirect('/');
     }
-  }
+  } */
 
   public function initLogin(){
+
+    /* $_POST=json_decode(file_get_contents('php://input'),true);
+
+    var_dump($this->input->post()); */
 
     $user = $this->input->post('user');
     $password=$this->input->post("password");
@@ -75,7 +96,7 @@ class Login extends CI_Controller{
       $result=array(
         'status'=>'error',
         'message'=>'Usuario o contraseña incorrectos',
-        'data'=>$this->input->post()
+        'data'=>$_POST
       );
       $this->output->set_status_header(400);
 

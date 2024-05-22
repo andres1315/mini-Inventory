@@ -20,7 +20,7 @@ const handleSubmitLogin= async(event)=>{
     window.location.reload();
   })
   .catch((e)=>{
-    Swal.fire('Atencíon',e.response.data.message|| 'Error al iniciar sesion','error')
+    Swal.fire('Atencíon',e.response?.data?.message|| 'Error al iniciar sesion','error')
   })
 }
 
