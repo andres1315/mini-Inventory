@@ -9,6 +9,6 @@ class MenuModel extends CI_Model{
 
   public function getAllMenu(){
     $query = $this->db->get_where('menu',array('state',1));
-    return $query->row_array();
+    return $query->result_array();
   }
 }

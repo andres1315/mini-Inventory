@@ -43,7 +43,17 @@ class Migration_table_menu extends CI_Migration{
         'null'=>FALSE,
         'default'=>1
       ),
-      'created_at datatime default current_timestamp',
+      'url'=>array(
+        'type'=>'VARCHAR',
+        'constraint'=>255,
+        'null'=>false
+      ),
+      'parent_menu'=>array(
+        'type'=>'INT',
+        'constraint'=>11,
+        'null'=>TRUE
+      ),
+      'created_at datetime default current_timestamp',
       'updated_at datetime default current_timestamp on update current_timestamp',
     ));
     $this->dbforge->add_key('id',true);
