@@ -22,13 +22,13 @@ class Migration_table_users extends CI_Migration
       'user'=> array(
         'type'=>'VARCHAR',
         'constraint' => '100',
-        'unique':TRUE,
+        'unique'=>TRUE,
         'null'=>FALSE
       ),
       'email'=>array(
         'type'=>'VARCHAR',
         'constraint'=>'255',
-        'unique':TRUE,
+        'unique'=>TRUE,
         'null'=>FALSE
 
       ),
