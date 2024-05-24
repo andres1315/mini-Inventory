@@ -70,6 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
 					text:'Usuario creado con exito',
 					timer:1000
 				})
+				formNewUser.reset();
+				$('#modalApp').modal('hide');
+				loadDataUsers();
+
 			}
 		})
 		.catch(e=>{
