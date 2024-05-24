@@ -58,3 +58,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </div>
   </div>
 </div>
+
+
+<!-- Modal Create users -->
+<div class="modal fade" id="modalEditUser" tabindex="-1" aria-labelledby="modalApp" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAppTitle">Modificar Usuario</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <form id="formEditUser">
+            <div class="row p-2 mb-3">
+              <div class="col-12 col-md-6">
+                <label for="nameEdit">Nombre</label>
+                <input type="text" name="nameEdit" id="nameEdit" class="form-control" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="emailEdit">Contraseña</label>
+                <input type="text" class="form-control" name="emailEdit" id="emailEdit" required>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button class="btn-sm btn-success btn-sm rounded w-50" type="submit">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
