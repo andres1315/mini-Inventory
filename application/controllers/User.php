@@ -17,8 +17,44 @@ class User extends CI_Controller{
       $info=array_merge($info,$resource);
       $this->load->view('layout/appLayout',$info);
 
-    }catch(Execption $e){
-      echo 'Error [Controller/User/index]: ',  $e->getMessage(), "\n";
+    }catch(Exception $e){
+      echo "Error [Controller/User/index]: ".$e->getMessage();
+    }
+  }
+
+  private function cryptPassword($password){
+    return password_hash(trim($password),PASSWORD_DEFAULT);
+  }
+
+  public function createUser(){
+    try{
+      $name = $this->input->post('name');
+      $email =$this->input->post('email');
+      $user = $this->input->post('user');
+      $password = $this->cryptPassword($this->input->post('password'));
+      $newUser =[
+        "name"      =>$name,
+        "email"     =>$email,
+        "user"      =>$user,
+        "password"  =>$password
+      ];
+      $this->userModel->create($newUser);
+      $this->output->set_status_header(200);
+      $result=array(
+        'status'=>'success',
+        'message'=>'Usuario creado correctamente',
+        'data'=>[]
+      );
+      return $this->output->set_content_type('application/json')->set_output(json_encode($result));
+    }catch(Exception $e){
+      $message = $e->getMessage();
+      $result=array(
+        'status'=>'error',
+        'message'=>$message,
+        'data'=>[]
+      );
+      $this->output->set_status_header(400);
+      return $this->output->set_content_type('application/json')->set_output(json_encode($result));
 
     }
   }
@@ -36,9 +72,9 @@ class User extends CI_Controller{
         ];
         $this->output->set_status_header(200);
       }
-    return $this->output->set_content_type('application/json')->set_output(json_encode($result));
+      return $this->output->set_content_type('application/json')->set_output(json_encode($result));
 
-    }catch(Execption $e){
+    }catch(Exception $e){
       echo 'Error [Controller/User/listUser]: ',  $e->getMessage(), "\n";
 
     }

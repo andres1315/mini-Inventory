@@ -7,16 +7,18 @@
   <?php echo $this->load->view('components/header', [], true); ?>
 </head>
 <body data-scrollbar-auto-hide="n">
-<div class="wrapper">
-  
-  <?php $this->load->view('/components/sideBar'); ?>
-  <div class="content-wrapper">
+  <div class="wrapper">
+    
+    <?php $this->load->view('/components/sideBar'); ?>
+    <div class="content-wrapper">
 
-    <?php $this->load->view($view) ?>
+      <?php $this->load->view($view) ?>
+    </div>
   </div>
-</div>
-<?php $this->load->view('/components/scripts'); ?>
 
+
+  
+  <?php $this->load->view('/components/scripts'); ?>
   
 </body>
 </html>
