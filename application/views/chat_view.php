@@ -1,21 +1,20 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-
-
-<div id="container d-flex">
-	<h1>Home to MinInventory 222222222222222222222</h1>
-	<div id="chat">
+<!-- application/views/chat_view.php -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Chat</title>
+</head>
+<body>
+    <div id="chat">
         <div id="messages"></div>
         <input type="text" id="message" />
         <button id="send">Send</button>
     </div>
-</div>
-<script>
+    <script>
         var conn = new WebSocket('ws://localhost:8080');
         conn.onopen = function(e) {
             console.log("Connection established!");
-            conn.send(JSON.stringify({subscribe: '111111/zoneGames3'}));
+            conn.send(JSON.stringify({subscribe: '111111/zoneGames'}));
         };
 
         conn.onmessage = function(e) {
@@ -33,3 +32,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             messageInput.value = '';
         };
     </script>
+</body>
+</html>
